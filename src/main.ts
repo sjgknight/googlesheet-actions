@@ -7,6 +7,7 @@ main().catch(handleError);
 
 async function main(): Promise<void> {
   try {
+    const googleKey = core.getInput('sheets-api-key');
     const sheetID = core.getInput('sheet-id');
     const data = await sheet(sheetID);
     writeFileSync(`${process.env.HOME}/data.json`, data, 'utf-8');
