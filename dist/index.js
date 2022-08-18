@@ -874,6 +874,7 @@ function main() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const sheetID = core.getInput('sheet-id');
+		const googleKey = core.getInput('sheets-api-key');
             const data = yield sheet_1.default(sheetID);
             fs_1.writeFileSync(`${process.env.HOME}/data.json`, data, 'utf-8');
             core.setOutput('result', JSON.stringify(data, null, 2));
